@@ -1,22 +1,25 @@
-function PM (dano , saude){
-    const readline = require('readline');
+const readline = require('readline');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+function PM (D , V ){
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+     rl.question('Digite a vida do personagem: ', (V) => {
+        
+    rl.question('Digite o dano recebido: ', (D) => {
+        
+        if (V - D <= 0){
+            console.log('Personagem morto');
+            rl.close();
+        }
+        else{
+            V = V - D;
+            console.log('Vida restante: ' + V);
+            rl.close();
+        }
+    }); 
 });
-
-rl.question('Digite o dano recebido: ', (D) =>{
-rl.question('Digite a vida do personagem: ', (V) => {
-
-D = parseInt(D);
-V = parseInt(V);
- 
-
-if (V < D){
-rl.close();
-
-    })
-});
-
 }
+
+PM();
